@@ -24,33 +24,33 @@ describe ExcelProcessor do
 			@book.image_log.should_not be_empty
 		end
 
-		it "should return an @image_log length of 6" do
+		it "should start with 'fig_'" do
 			@book.read_spreadsheet
-			@book.image_log.length.should eq 6
+			@book.image_log.has_key?("fig_8-8").should be_true
+			@book.image_log.has_key?("fig_2").should be_true
+		end
+
+		it "should replace periods between numbers with dashes" do
+			@book.read_spreadsheet
+			@book.image_log.has_key?("fig_1-1").should be_true
 		end
 
 		it "should match the right figure numbers with the right links" do
 			@book.read_spreadsheet
-			@book.image_log.fetch("Fig. 1.1").should eq "http://commons.wikimedia.org/wiki/File:Basketry-covered_lightbulb_01.jpg"
+			@book.image_log.fetch("fig_1-1").should eq "http://commons.wikimedia.org/wiki/File:Basketry-covered_lightbulb_01.jpg"
+		end
+
+		it "should remove any pairs with blank values" do
+			@book.read_spreadsheet
+			@book.image_log.has_key?("").should be_false
+		end
+
+		it "should return an @image_log length of 4" do
+			@book.read_spreadsheet
+			@book.image_log.length.should eq 4
 		end
 
 	end
 
-	context "#rm_non_links" do
-
-		it "should remove any nil pairs from @image_log" do
-			@book.read_spreadsheet
-			@book.rm_non_links
-			@book.image_log.should_not include "nil" => "nil"
-		end
-
-		it "should remove anything that doesn't look like a web address" do
-			@book.read_spreadsheet
-			@book.rm_non_links
-			@book.image_log.should_not include "Fig. 9.1" => "Original (photo taken by author)"
-			@book.image_log.should_not include "Fig. 10.2" => "Environmental Science: Earth as a Living Planet"
-		end
-
-	end
 
 end

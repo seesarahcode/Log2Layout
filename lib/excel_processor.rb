@@ -21,45 +21,49 @@ class ExcelProcessor
 			link_array = []
 			figure_array = []
 
-			# Pull values from columns
-
+			# Pull values from Figure # column
 			for row in 10..img_ws.UsedRange.Rows.Count do 
-			 	cell = img_ws.Cells(row,3).Value
-			 	figure_array << cell
-			end
+			 	cell = img_ws.Cells(row,3).value
+			 	if cell != nil
+			 		c = cell.sub(/(\D*)/, "fig_")
+					new_cell = c.sub(/(\.)/, "-")
+			 	else
+			 		new_cell = ""
+			 	end
 
+			 	figure_array << new_cell
+			end
+		
+			# Pull values from Source URL column
 			for row in 10..img_ws.UsedRange.Rows.Count do 
 			 	cell = img_ws.Cells(row,4).Value
-			 	link_array << cell
+				if (cell != nil) && (cell.include?("."))
+			 		new_cell = cell
+			 	else
+			 		new_cell = ""
+			 	end
+
+			 	link_array << new_cell
 			end
 
-
-			# Zip darrays into hash of figure numbers and links
+			# Zip arrays into hash of figure numbers and links
 			@image_log = Hash[figure_array.zip(link_array)]
+
+			# Remove blanks
+			@image_log.delete_if { |k, v| k == "" }
 
 		# Shut it down	
 		excel.ActiveWorkbook.Close(0)
 		excel.Quit
 	end
 
-	def rm_non_links
-		# Removes pairs with values that aren't a valid web page/image
-		@image_log.delete_if {| k, v | k == nil }
-		@image_log.each do | k, v |
-			if v.scan(/\s*\.\s*/) == true
-				continue
-			else
-				@image_log.delete(k)
-			end
-		end
-
-	end
-
 end
 
 
 
-
+# Potential refactor:
 # ensure
 # 	File.delete("tmpfile") if File.exist?("tmpfile")
 # end
+
+# Feature: add red highlight for rows that return multiple results

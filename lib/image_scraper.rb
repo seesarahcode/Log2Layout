@@ -1,34 +1,52 @@
 require "#{File.dirname(__FILE__)}/./excel_processor"
+require 'nokogiri'
+require 'open-uri'
 
 class ImageScraper
 
-	def initialize log, homepath
+	attr_accessor :log, :location
+
+	def initialize log, location
 		@log = log
-		@homepath = homepath
+		@location = location
 	end
 
-	def create_dirs
-	end
-
-	def f_strip
-		# Sets up the figure numbers for image saving
-		@full_log.each_key do |key|
-			# strip periods
-			# replace space with 
-			# capitalize
+	def create_dir
+		if Dir.exists?("#{File.dirname(@location)}/images")
+			return "Exists!"
+		else
+			Dir.mkdir("#{File.dirname(@location)}/images")
 		end
 	end
 
-	def open_page
+	def image_scrape
+		# Sets HTTP access for each value (URL)
+		@log.each do |k, v|
+			if v.include? "wikipedia" || v.include? "wikimedia"
+				# go to wiki scrape
+
+			else
+				# go to general scrape
+				
+			end
+		end
+
 	end
 
 	def wiki_scrape
+		puts "you've arrive to wiki scrape"
 		# Scans and locates original image file
 		# Downloads file
 	end
 
+	def general_scrape
+		puts "you've arrive to the general scrape"
+		# Scans and locates non-nav image files
+	end
+
 	def dup_handler
 		# Handles the renaming/numbering of files from rows with multiple results
+		# Creates folder for dups
 	end
 
 	def logger
@@ -36,16 +54,6 @@ class ImageScraper
 	end
 
 end
-
-
-
-# # Creates /images folder in location of image log
-
-# img_folder = Dir.mkdir("images")
-
-# # For each URL, 1) access web page, 2) scan for unique images, 
-# #    3) download image file to /image folder
-
 
 # open(link_array) {|f|
 #    File.open("Basketry-covered_lightbulb_01.jpg","wb") do |file|
