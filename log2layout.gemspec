@@ -10,5 +10,5 @@ Gem::Specification.new do |s|
 	s.email = "sarahcwheeler@smail.com"
 	s.homepage = "http://rubygems.org/gems/log2layout"
 	s.licenses = ['MIT']
-	s.files = ["lib/log2layout.rb"]
+	s.files = Dir["README.md", "Gemfile", "spec/*", "lib/*"]
 end
