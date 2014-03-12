@@ -2,8 +2,8 @@ require "#{File.dirname(__FILE__)}/../lib/excel_processor"
 
 describe ExcelProcessor do
 
-	before :each do
-		@book = ExcelProcessor.new("c:\\Users\\Pooter\\Desktop\\file.xlsx")
+	before do
+		@book = ExcelProcessor.new("#{File.dirname(__FILE__)}/../resources/image-log-template.xlsx")
 	end
 
 	context "#new" do
@@ -18,7 +18,6 @@ describe ExcelProcessor do
 	end
 
 	context "#read_spreadsheet" do
-		# Refactor: create new test object to reduce repetitiveness
 		it "should open Excel and populate image log" do
 			@book.read_spreadsheet
 			@book.image_log.should_not be_empty

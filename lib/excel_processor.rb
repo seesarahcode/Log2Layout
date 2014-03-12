@@ -23,7 +23,7 @@ class ExcelProcessor
 
 			# Pull values from Figure # column
 			for row in 10..img_ws.UsedRange.Rows.Count do 
-			 	cell = img_ws.Cells(row,3).value
+			 	cell = img_ws.Cells(row,3).value.to_s
 			 	if cell != nil
 			 		c = cell.sub(/(\D*)/, "fig_")
 					new_cell = c.sub(/(\.)/, "-")
@@ -58,12 +58,3 @@ class ExcelProcessor
 	end
 
 end
-
-
-
-# Potential refactor:
-# ensure
-# 	File.delete("tmpfile") if File.exist?("tmpfile")
-# end
-
-# Feature: add red highlight for rows that return multiple results

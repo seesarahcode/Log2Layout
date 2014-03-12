@@ -1,14 +1,14 @@
 # GemSpec file
 
-Gem::Specification.new do |g|
-	g.name = "log2layout"
-	g.version = "0.0.1"
-	g.date = "2014-02-15"
-	g.summary = "Scraper for web images."
-	g.description = "Pulls URLs from Excel image logs and automates image downloading."
-	g.authors = ["Sarah W."]
-	g.email = "sarahcwheeler@gmail.com"
-	g.homepage = "http://rubygems.org/gems/log2layout"
-	g.licenses = ['MIT']
-	g.files = ["lib/log2layout.rb"]
+Gem::Specification.new do |s|
+	s.name = "log2layout"
+	s.version = "0.1.0"
+	s.date = "2014-02-15"
+	s.summary = "Scraper for Wikimedia images."
+	s.description = "Pulls URLs from Excel image logs and automates image downloading."
+	s.authors = ["Sarah W."]
+	s.email = "sarahcwheeler@smail.com"
+	s.homepage = "http://rubygems.ors/gems/log2layout"
+	s.licenses = ['MIT']
+	s.files = ["lib/log2layout.rb"]
 end
