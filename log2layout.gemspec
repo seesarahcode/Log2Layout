@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
 	s.description = "Pulls Wiki URLs from Excel spreadsheet and automates image downloading."
 	s.authors = ["Sarah W."]
 	s.email = "sarahcwheeler@smail.com"
-	s.homepage = "http://rubygems.ors/gems/log2layout"
+	s.homepage = "http://rubygems.org/gems/log2layout"
 	s.licenses = ['MIT']
 	s.files = ["lib/log2layout.rb"]
 end

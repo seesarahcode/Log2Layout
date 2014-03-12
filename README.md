@@ -12,15 +12,15 @@
 
 ## Log2Layout Recipe
 
-+ 1. Install the Log2Layout gem. 
+1. Install the Log2Layout gem. 
 
 	gem install log2layout
 
-+ 2. Run the gem with the name of your Excel spreadsheet file as the argument.
+2. Run the gem with the name of your Excel spreadsheet file as the argument.
 
 	log2layout c:/Users/You/Desktop/image_log.xlsx
 
-+ 3. Magic happens (sometimes the magic can take a little while--these are high res images, after all), and suddenly an "images" folder appears beside your spreadsheet. Ta-da!
+3. Magic happens (sometimes the magic can take a little while--these are high res images, after all), and suddenly an "images" folder appears beside your spreadsheet. Ta-da!
 
 
 ## Planned Features for When I'm a Better Programmer:
