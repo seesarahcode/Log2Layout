@@ -5,12 +5,12 @@ require_relative './excel_processor.rb'
 
 #TO RUN MANUALLY ON THE COMMAND LINE
 
-excel_path = ARGV.first || "#{File.dirname(__FILE__)}/./resources/image-log-template.xlsx"
+# excel_path = ARGV[0]
 
-@book = ExcelProcessor.new(excel_path)
-@book.read_spreadsheet
-@book.image_log
+# @book = ExcelProcessor.new(excel_path)
+# @book.read_spreadsheet
+# @book.image_log
 
-@image_scraper = ImageScraper.new(@book.image_log, @book.spreadsheet)
-@image_scraper.create_dir
-@image_scraper.scrape
+# @image_scraper = ImageScraper.new(@book.image_log, @book.spreadsheet)
+# @image_scraper.create_dir
+# @image_scraper.scrape

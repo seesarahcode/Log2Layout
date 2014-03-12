@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
 	s.name = "log2layout"
-	s.version = "0.0.0"
+	s.version = "0.0.1"
 	s.date = "2014-02-15"
 	s.summary = "Scraper for Wikimedia images."
 	s.description = "Pulls Wiki URLs from Excel spreadsheet and automates image downloading."
