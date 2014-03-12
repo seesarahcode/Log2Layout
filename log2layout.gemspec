@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
 	s.homepage = "http://rubygems.org/gems/log2layout"
 	s.licenses = ['MIT']
 	s.files = Dir["README.md", "Gemfile", "spec/*", "lib/*"]
+	s.add_development_dependency "rspec", "~>2.0"
 end
