@@ -1,6 +1,6 @@
  # Opens Excel Log
 
-load 'win32ole'
+require 'win32ole'
 
 class ExcelProcessor
 
