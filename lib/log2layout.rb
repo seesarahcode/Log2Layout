@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require '../image_scraper.rb'
-require '../excel_processor.rb'
+require './image_scraper.rb'
+require './excel_processor.rb'
 
 excel_path = ARGV[0]
 
