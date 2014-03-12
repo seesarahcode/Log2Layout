@@ -1,3 +1,4 @@
+require 'spec_helper.rb'
 require "#{File.dirname(__FILE__)}/../lib/excel_processor"
 
 describe ExcelProcessor do
